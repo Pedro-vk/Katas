@@ -1,0 +1,28 @@
+﻿<!DOCTYPE html>
+<html>
+	<head>
+		<title>Kata Dígitos [Pedro Gutiérrez]</title>
+		<script>
+			
+			////////////////////////////////
+			//       Kata - Dígitos       //
+			//       Pedro Gutiérrez      //
+			// pedrogp9_6_93@hotmail.com  //
+			////////////////////////////////
+			
+			function digitos(n){
+				var r,f,i
+				r=''
+				f=true
+				for(i=1;f;i++) r.indexOf(n)!=-1?f=false:r+=i
+				return r.length-n.length+1
+			}
+		</script>
+	</head>
+	<body>
+		<input value="15"><input type="button" value="probar" onclick='alert(digitos(document.getElementsByTagName("input").item(0).value))'><br>
+		<a href="#" onclick='javascript:document.getElementsByTagName("input").item(0).value=this.innerHTML'>15</a><br>
+		<a href="#" onclick='javascript:document.getElementsByTagName("input").item(0).value=this.innerHTML'>34</a><br>
+		<a href="#" onclick='javascript:document.getElementsByTagName("input").item(0).value=this.innerHTML'>142</a><br>
+	</body>
+</html>

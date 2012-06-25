@@ -1,0 +1,47 @@
+﻿<!DOCTYPE html>
+<html>
+	<head>
+		<title>Kata SMS [Pedro Gutiérrez]</title>
+		<script>
+			
+			////////////////////////////////
+			//          Kata - SMS        //
+			//       Pedro Gutiérrez      //
+			// pedrogp9_6_93@hotmail.com  //
+			////////////////////////////////
+			
+			key=["-_:0",".; 1","abc2","def3","ghi4","jkl5","mno6","pqrs7","tuv8","wxyz9"]
+			
+			function DecodeSMS(string){
+				s=string.split('')
+				r=f=t=n=''
+				for(a=0;a<s.length+1;a++){
+					if(f==s[a]){
+						n++
+					}else{
+						if(f!=' '&&f!=''){
+							k=key[f].split('')
+							m=String(n/k.length).indexOf('.')!=-1
+							g=m?String(n/k.length).split('.')[1]:''
+							n=n>=k.length?m?g/100*k.length:0:n
+							r+=k[n]
+						}
+						f=s[a]
+						n=0
+					}
+				}
+				return r
+			}
+		
+		</script>
+	</head>
+	
+	<body>
+		<input value=" 222 2 7777 2"><input type="button" value="probar" onclick='alert(DecodeSMS(document.getElementsByTagName("input").item(0).value))'><br>
+		<a href="#" onclick='javascript:document.getElementsByTagName("input").item(0).value=this.innerHTML'>0</a><br>
+		<a href="#" onclick='javascript:document.getElementsByTagName("input").item(0).value=this.innerHTML'>6 666 66 666</a><br>
+		<a href="#" onclick='javascript:document.getElementsByTagName("input").item(0).value=this.innerHTML'>222 277772</a><br>
+		<a href="#" onclick='javascript:document.getElementsByTagName("input").item(0).value=this.innerHTML'>222 2 7777 2</a><br>
+		<a href="#" onclick='javascript:document.getElementsByTagName("input").item(0).value=this.innerHTML'>4444446665552</a><br>
+	</body>
+</html>

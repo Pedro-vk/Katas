@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Kata Números felices [Pedro Gutiérrez]</title>
+		<script>
+			
+			////////////////////////////////
+			//   kata - Numeros felices   //
+			//       Pedro Gutiérrez      //
+			// pedrogp9_6_93@hotmail.com  //
+			////////////////////////////////
+
+			function nFelices(n){
+				var a,m,i,h,t
+				a=true
+				m=n
+				for(i=0;true;i++){
+					m=String(m).split('')
+					t=0
+					for(h=0;h<m.length;h++){
+						t+=Math.pow(m[h],2)
+					}
+					if(t==1||t==4) return 'El número '+(t==1?'':'no ')+'es feliz'
+					else m=t
+				}
+			}
+		</script>
+	</head>
+	<body>
+		<input value="19"><input type="button" value="probar" onclick='alert(nFelices(document.getElementsByTagName("input").item(0).value))'><br>
+		<a href="#" onclick='javascript:document.getElementsByTagName("input").item(0).value=this.innerHTML'>1</a><br>
+		<a href="#" onclick='javascript:document.getElementsByTagName("input").item(0).value=this.innerHTML'>4</a><br>
+		<a href="#" onclick='javascript:document.getElementsByTagName("input").item(0).value=this.innerHTML'>19</a><br>
+		<a href="#" onclick='javascript:document.getElementsByTagName("input").item(0).value=this.innerHTML'>4020</a><br>
+	</body>
+</html>

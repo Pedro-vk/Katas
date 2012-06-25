@@ -1,0 +1,58 @@
+<!DOCTYPE html>  
+<html>  
+    <head>  
+        <title>Kata Piedra/Papel/Tijera/Lagarto/Spocke [Pedro Gutiérrez]</title>  
+        <script>  
+              
+            ////////////////////////////////  
+            //       kata - P/P/T/L/S     //  
+            //       Pedro Gutiérrez      //  
+            // pedrogp9_6_93@hotmail.com  //  
+            ////////////////////////////////  
+ 
+ 
+            opt=['Piedra','Papel','Tijera','Lagarto','Spocke'] 
+            wins=[ 
+                [0,1,2,2,1], 
+                [2,0,1,1,2], 
+                [1,2,0,2,1], 
+                [1,2,1,0,2], 
+                [2,1,2,1,0], 
+            ] 
+ 
+            function PPTLS(o1,o2){ 
+                r=''
+                if(o2==='random'){ 
+                    o2=random() 
+                    var r=' ('+opt[o2]+')' 
+                } 
+                switch(wins[o1][o2]){ 
+                    case 0: return 'Empate';break; 
+                    case 1: return 'Pierdes'+r;break; 
+                    case 2: return '¡Ganas!'+r;break; 
+                } 
+            } 
+            function random(){ 
+                return Math.round((Math.random()*5)-0.5) 
+            } 
+        </script>  
+    </head>  
+    <body> 
+        <select> 
+            <option value='0'>Piedra</option> 
+            <option value='1'>Papel</option> 
+            <option value='2'>Tijera</option> 
+            <option value='3'>Lagarto</option> 
+            <option value='4'>Spocke</option> 
+        </select> 
+        <select> 
+            <option value='random'>Aleatório</option> 
+            <option value='0'>Piedra</option> 
+            <option value='1'>Papel</option> 
+            <option value='2'>Tijera</option> 
+            <option value='3'>Lagarto</option> 
+            <option value='4'>Spocke</option> 
+        </select> 
+        <input type="button" value="jugar" onclick='alert(PPTLS(document.getElementsByTagName("select").item(0).value,document.getElementsByTagName("select").item(1).value))'><br> 
+    </body>  
+</html> 

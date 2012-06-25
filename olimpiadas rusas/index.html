@@ -1,0 +1,29 @@
+﻿<!DOCTYPE html>
+<html>
+	<head>
+		<title>Kata Problema de las Olimpiadas rusas [Pedro Gutiérrez]</title>
+		<script>
+			
+			////////////////////////////////
+			//       Kata - JO Rusos      //
+			//       Pedro Gutiérrez      //
+			// pedrogp9_6_93@hotmail.com  //
+			////////////////////////////////
+			
+			function oliRusas(n){
+				var r,f,i
+				r=''
+				f=true
+				for(i=1;f;i++) r.length>n?f=false:r+=i
+				return r[n-1]
+			}
+		</script>
+	</head>
+	<body>
+		<input value="206788"><input type="button" value="probar" onclick='alert(oliRusas(document.getElementsByTagName("input").item(0).value))'><br>
+		<a href="#" onclick='javascript:document.getElementsByTagName("input").item(0).value=this.innerHTML'>5</a><br>
+		<a href="#" onclick='javascript:document.getElementsByTagName("input").item(0).value=this.innerHTML'>10</a><br>
+		<a href="#" onclick='javascript:document.getElementsByTagName("input").item(0).value=this.innerHTML'>11</a><br>
+		<a href="#" onclick='javascript:document.getElementsByTagName("input").item(0).value=this.innerHTML'>206788</a><br>
+	</body>
+</html>
