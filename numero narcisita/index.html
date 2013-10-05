@@ -1,0 +1,35 @@
+<body><pre></pre></body>
+
+<script type="text/javascript">
+
+var RES=[]
+	
+function nar(n){
+	var r = 0,
+		s = String(n);
+	for(var a=0;a<s.length;a++)
+		r += Math.pow(s.charAt(a),s.length);
+	if(r==n)
+		RES.push([n,(((new Date()).getTime()-t1)/1000)])
+}
+
+function com(n){
+	var a=0
+	t1=(new Date()).getTime()
+	for(var a=0;a<Math.pow(10,n);a++) nar(a)
+	document.body.firstChild.innerHTML=tab(RES)+
+					'---------------------\n'+
+					'Time	-->	'+(((new Date()).getTime()-t1)/1000)+
+					'\n---------------------\n'+
+					'Digits	-->	'+n
+}
+
+function tab(o){
+	var r=''
+	for(var a=0;a<o.length;a++) r+=o[a][0]+'	-->	'+o[a][1]+'\n'
+	return r
+}
+com(7)
+
+
+</script>
