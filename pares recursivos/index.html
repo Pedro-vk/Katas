@@ -1,0 +1,15 @@
+<script>
+
+A=[]
+function parRec(n,m){
+	n>0?parRec(n-1,m-(m%2)-2,(A.push(m-(m%2)))):B=A,A=[]
+	if(!n>0) alert(B)
+	
+}
+
+parRec(3,6)
+parRec(4,3)
+parRec(0,8)
+parRec(30,-200)
+
+</script>
