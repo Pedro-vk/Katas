@@ -1,0 +1,17 @@
+<body><code></code></body>
+<script>
+	function shinWoo(n){
+		var r = {
+				pares: Math.floor(n/2),
+				impares: Math.floor(n/2)+(n%2),
+				lista:[]};
+		for(var i=0;i<r.impares;i++)
+			r.lista.push(i*2+1);
+		return JSON.stringify(r,null,' ')
+	}
+	function show(n){document.body.firstChild.innerHTML += '<span style="color:#F00">'+ n +'</span> => '+ shinWoo(n).replace(/([0-9]+)/g,'<span style="color:#00F">$1</span>') +'<br>';}
+	show(4);
+	show(5);
+	show(21);
+	show(132);
+</script>
