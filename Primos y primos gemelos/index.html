@@ -1,0 +1,38 @@
+<body><pre></pre></body>
+<style>strong{color:#00f;}</style>
+<script>
+	function buscarPrimos(n){
+		var primos = [2];
+
+		for(var i=3; i<n; i++){
+			noPrimo = false;
+			for(var p=0; p<primos.length && !noPrimo; p++)
+				noPrimo = (i%primos[p] == 0);
+			if(!noPrimo) primos.push(i);
+		}
+
+		return primos;
+	}
+	function buscarGemelos(primos){
+		var primos = primos;
+
+		return primos.filter(function(x, i){
+			return ( (primos[i+1] - x) == 2 || (x - primos[i-1]) == 2 );
+		})
+	}
+	function mostrarLista(n){
+		var time = new Date(),
+			primos = buscarPrimos(n),
+			gemelos = buscarGemelos(primos),
+			list = "Tiempo: " + ((new Date()) - time) + "ms\n";
+
+		primos.map(function(x){
+			list += gemelos.indexOf(x) != -1 ? "<strong>" + x + "</strong>\n" : x + "\n"; 
+		})
+
+		return list;
+	}
+
+	document.body.firstChild.innerHTML = mostrarLista(100000);
+
+</script>
