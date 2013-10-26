@@ -1,0 +1,10 @@
+<body><pre></pre></body>
+
+<script>
+	function gln(a, b){
+		for(var r='', i=a+(1-a%2); i<=b; i+=2)
+			r += (i * 2) + "\n";
+		return r;
+	}
+	document.body.firstChild.innerHTML = gln(2, 11);
+</script>
