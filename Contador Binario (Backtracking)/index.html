@@ -1,0 +1,15 @@
+<body><pre></pre></body>
+
+<script type="text/javascript">
+
+	function cb(n, t){
+		if(n--){
+			cb(n, t+'0');
+			cb(n, t+'1');
+		}else
+			document.body.firstChild.innerHTML += t + '\n';
+	}
+
+	cb(3, '');
+
+</script>
