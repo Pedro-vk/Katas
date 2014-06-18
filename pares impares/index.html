@@ -1,0 +1,48 @@
+<script>
+	
+	var numeros = [],
+	    nPares = [],
+	    nImpares = [];
+
+	var cantidad = 100 + Math.round(Math.random() * 900);
+
+	while(cantidad--) numeros.push(Math.round(Math.random() * 100));
+
+	nPares = numeros.filter(function(n){return n%2 == 0;});
+	nImpares = numeros.filter(function(n){return n%2 == 1;});
+
+	var datos = function(titulo, numeros, todos){
+		this.titulo = titulo;
+		this.numeros = numeros;
+		this.todos = todos.length;
+
+		var sumatorio = function(numeros){
+			var resultado = 0;
+			numeros.forEach(function(n){
+				resultado += n;
+			});
+			return resultado;
+		}
+
+		var mediaArim = function(numeros){
+			return Math.round(sumatorio(numeros) / numeros.length);
+		}
+
+		this.mostrar = function(){
+			console.group(this.titulo);
+			console.log('Porcentaje:	', Math.round(this.numeros.length / this.todos * 100));
+			console.log('Cantidad:  	', this.numeros.length);
+			console.log('Ultimo:		', this.numeros[this.numeros.length - 1]);
+			console.log('Suma:  		', sumatorio(this.numeros));
+			console.log('Promedio:  	', mediaArim(this.numeros));
+			console.groupEnd();
+		}
+	}
+
+	var pares = new datos("Pares", nPares, numeros);
+	var impares = new datos("Impares", nImpares, numeros);
+
+	pares.mostrar();
+	impares.mostrar();
+
+</script>
