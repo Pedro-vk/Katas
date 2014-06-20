@@ -1,0 +1,75 @@
+<script>
+	function partidaDardos(puntosIniciales, jugadores){
+		var NJ = "jugador";
+
+		this.jugadores = {};
+		this.turnos = null;
+
+		this.nuevaPartida = function(turnos){
+			this.turnos = turnos;
+
+			for(var i=1; i<=jugadores; i++)
+				this.jugadores[NJ+i] = {
+					tirada: null,
+					puntuacion: puntosIniciales,
+					ganador: "No"
+				}
+		}
+
+		this.nuevoTurno = function(){
+			if(this.turnos--<=0) return false;
+
+			var ganador = false;
+
+			for(var jugador in this.jugadores){
+				var tirada = generarTirada(3),
+					j = this.jugadores[jugador];
+
+				j.tirada = tirada.join(', ');
+
+				for(var n in tirada)
+					if(j.puntuacion != 0)
+						j.puntuacion -= tirada[n];
+
+				if(j.puntuacion < 0)
+					j.puntuacion += sumar(tirada);
+
+				if(j.puntuacion == 0 && !ganador){
+					j.ganador = "Si";
+					ganador = true;
+				}
+			}
+			console.table(this.jugadores);
+			console.log(!this.turnos ? "Partida agotada" : ganador ? "Partida terminada" : "Quedan " + this.turnos + " turnos")
+
+			return !ganador;
+		}
+
+
+		function generarTirada(tiros){
+			var tirada = [];
+			for(var i=0; i<tiros; i++){
+				var tiro = Math.floor(Math.random() * 20) + 1;
+
+				if(Math.random() < 0.06) tiro *= 3; // Triple
+				if(Math.random() < 0.02) tiro = 25; // Diana
+				if(Math.random() < 0.08) tiro *= 2; // Doble
+				if(Math.random() < 0.04) tiro = 0; // Falla
+
+				tirada.push(tiro);
+			}
+			return tirada;
+		}
+
+		function sumar(array){
+			var suma = 0;
+			for(var n in array) suma += array[n];
+			return suma;
+		}
+	}
+
+	var partida = new partidaDardos(501, 2);
+	partida.nuevaPartida(20);
+	while(partida.nuevoTurno());
+
+</script>
